@@ -3,109 +3,322 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SirKeys | Smart Home Login</title>
+    <title>SirKeys | Smart Home</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/static/styles.css" />
   </head>
-  <body>
-    <div class="page-shell">
-      <div class="background-glow glow-one"></div>
-      <div class="background-glow glow-two"></div>
+  <body class="dashboard-body">
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand-wrap">
+          <div class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 64 64" role="img" aria-label="Home icon">
+              <path d="M10 28L32 10l22 18v24a4 4 0 0 1-4 4H14a4 4 0 0 1-4-4V28z" />
+              <path d="M22 52V34h20v18" />
+            </svg>
+          </div>
+          <div>
+            <p class="brand-label">SirKeys</p>
+            <h1>Home Hub</h1>
+          </div>
+        </div>
 
-      <main class="login-panel" aria-label="Smart home login form">
-        <section class="dashboard-side" aria-label="Smart home dashboard preview">
-          <div class="topbar">
-            <div class="brand">
-              <div class="brand-mark" aria-hidden="true">
-                <svg viewBox="0 0 64 64" role="img" aria-label="Home icon">
-                  <path d="M10 28L32 10l22 18v24a4 4 0 0 1-4 4H14a4 4 0 0 1-4-4V28z" />
-                  <path d="M22 52V34h20v18" />
-                </svg>
-              </div>
+        <nav class="sidebar-nav" aria-label="Main navigation">
+          <button class="nav-item active" data-target="home" type="button">
+            <span class="nav-icon">⌂</span>
+            <span>Home</span>
+          </button>
+          <button class="nav-item" data-target="devices" type="button">
+            <span class="nav-icon">◈</span>
+            <span>Devices</span>
+          </button>
+          <button class="nav-item" data-target="reports" type="button">
+            <span class="nav-icon">▣</span>
+            <span>Reports</span>
+          </button>
+          <button class="nav-item" data-target="settings" type="button">
+            <span class="nav-icon">⚙</span>
+            <span>Settings</span>
+          </button>
+        </nav>
+
+        <div class="side-card">
+          <p class="eyebrow">System</p>
+          <div class="system-status">
+            <span class="status-dot"></span>
+            <span>All systems stable</span>
+          </div>
+          <small>Last sync: 2 min ago</small>
+        </div>
+      </aside>
+
+      <main class="main-panel">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow accent">Overview</p>
+            <h2>Smart Home Dashboard</h2>
+          </div>
+          <div class="topbar-actions">
+            <button class="ghost-btn" type="button">+ Add scene</button>
+            <div class="user-pill">
+              <div class="avatar">S</div>
               <div>
-                <span class="eyebrow">SirKeys</span>
-                <h1>Smart Home</h1>
+                <strong>Steve</strong>
+                <small>Home owner</small>
               </div>
             </div>
-            <span class="status-pill">System Online</span>
+          </div>
+        </header>
+
+        <section class="section-panel active" data-section="home">
+          <div class="summary-grid">
+            <article class="summary-card accent-card">
+              <div class="card-top">
+                <span class="label">Energy</span>
+                <span class="trend up">+12%</span>
+              </div>
+              <strong>68%</strong>
+              <small>House efficiency rating</small>
+            </article>
+
+            <article class="summary-card">
+              <div class="card-top">
+                <span class="label">Indoor temp</span>
+                <span class="trend">Stable</span>
+              </div>
+              <strong>22°C</strong>
+              <small>Comfort target: 21–23°C</small>
+            </article>
+
+            <article class="summary-card">
+              <div class="card-top">
+                <span class="label">Humidity</span>
+                <span class="trend up">+4%</span>
+              </div>
+              <strong>54%</strong>
+              <small>Ideal climate range</small>
+            </article>
+
+            <article class="summary-card">
+              <div class="card-top">
+                <span class="label">Security</span>
+                <span class="trend safe">Safe</span>
+              </div>
+              <strong>Armed</strong>
+              <small>3 entry points monitored</small>
+            </article>
           </div>
 
-          <div class="hero-card">
-            <div class="mini-header">
-              <span>Home Overview</span>
-              <span class="dot" aria-hidden="true"></span>
+          <div class="content-grid">
+            <article class="panel-card wide">
+              <div class="panel-header">
+                <h3>Quick controls</h3>
+                <span class="chip chip-primary">Scene active</span>
+              </div>
+
+              <div class="controls-grid">
+                <button class="control-card active" type="button">
+                  <span class="icon">💡</span>
+                  <div>
+                    <strong>Lights</strong>
+                    <small>12 devices</small>
+                  </div>
+                  <span class="toggle-pill on">On</span>
+                </button>
+
+                <button class="control-card" type="button">
+                  <span class="icon">❄️</span>
+                  <div>
+                    <strong>Climate</strong>
+                    <small>Thermostat</small>
+                  </div>
+                  <span class="toggle-pill">Auto</span>
+                </button>
+
+                <button class="control-card" type="button">
+                  <span class="icon">🛡️</span>
+                  <div>
+                    <strong>Security</strong>
+                    <small>Monitoring</small>
+                  </div>
+                  <span class="toggle-pill on">Armed</span>
+                </button>
+
+                <button class="control-card" type="button">
+                  <span class="icon">💧</span>
+                  <div>
+                    <strong>Irrigation</strong>
+                    <small>Garden</small>
+                  </div>
+                  <span class="toggle-pill">Off</span>
+                </button>
+              </div>
+            </article>
+
+            <article class="panel-card">
+              <div class="panel-header">
+                <h3>Room status</h3>
+                <span class="chip">Live</span>
+              </div>
+
+              <div class="room-list">
+                <div class="room-row">
+                  <div>
+                    <strong>Living room</strong>
+                    <small>Lighting & TV</small>
+                  </div>
+                  <span class="status">Online</span>
+                </div>
+                <div class="room-row">
+                  <div>
+                    <strong>Kitchen</strong>
+                    <small>Appliances</small>
+                  </div>
+                  <span class="status">Active</span>
+                </div>
+                <div class="room-row">
+                  <div>
+                    <strong>Garage</strong>
+                    <small>Door + sensors</small>
+                  </div>
+                  <span class="status safe">Closed</span>
+                </div>
+                <div class="room-row">
+                  <div>
+                    <strong>Garden</strong>
+                    <small>Sprinklers</small>
+                  </div>
+                  <span class="status">Idle</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section-panel" data-section="devices">
+          <div class="panel-card">
+            <div class="panel-header">
+              <h3>Connected devices</h3>
+              <span class="chip chip-primary">18 active</span>
             </div>
 
-            <div class="metric-grid">
-              <div class="metric">
-                <span class="label">Temp</span>
-                <strong>22°C</strong>
+            <div class="device-table">
+              <div class="table-header">
+                <span>Device</span>
+                <span>Type</span>
+                <span>Status</span>
+                <span>Power</span>
               </div>
-              <div class="metric accent">
-                <span class="label">Energy</span>
-                <strong>68%</strong>
-              </div>
-            </div>
 
-            <div class="device-stack" aria-label="Connected devices">
-              <div class="device-row">
-                <span class="device-name">Living Room</span>
-                <span class="toggle on">ON</span>
+              <div class="table-row">
+                <span>Living room lamp</span>
+                <span>Light</span>
+                <span class="status safe">On</span>
+                <span>42 W</span>
               </div>
-              <div class="device-row">
-                <span class="device-name">Security</span>
-                <span class="toggle">ARMED</span>
+              <div class="table-row">
+                <span>Main thermostat</span>
+                <span>Climate</span>
+                <span class="status">Auto</span>
+                <span>1.8 kW</span>
               </div>
-              <div class="device-row">
-                <span class="device-name">Thermostat</span>
-                <span class="toggle on">AUTO</span>
+              <div class="table-row">
+                <span>Front gate</span>
+                <span>Security</span>
+                <span class="status safe">Closed</span>
+                <span>0.6 kW</span>
+              </div>
+              <div class="table-row">
+                <span>Garden pump</span>
+                <span>Water</span>
+                <span class="status">Idle</span>
+                <span>0 W</span>
               </div>
             </div>
           </div>
         </section>
 
-        <section class="login-side" aria-label="Login form section">
-          <div class="login-header">
-            <p class="eyebrow accent">Welcome back</p>
-            <h2>Sign in to your home</h2>
+        <section class="section-panel" data-section="reports">
+          <div class="report-grid">
+            <article class="panel-card">
+              <div class="panel-header">
+                <h3>Energy usage</h3>
+                <span class="chip">This week</span>
+              </div>
+              <div class="bars" aria-label="Weekly energy chart">
+                <span style="height: 35%"></span>
+                <span style="height: 52%"></span>
+                <span style="height: 40%"></span>
+                <span style="height: 72%"></span>
+                <span style="height: 61%"></span>
+                <span style="height: 82%"></span>
+                <span style="height: 68%"></span>
+              </div>
+            </article>
+
+            <article class="panel-card">
+              <div class="panel-header">
+                <h3>Appliance insights</h3>
+                <span class="chip">Updated</span>
+              </div>
+              <ul class="insight-list">
+                <li><span>Thermostat</span><strong>18.6 kWh</strong></li>
+                <li><span>Lights</span><strong>12.4 kWh</strong></li>
+                <li><span>Water pump</span><strong>8.1 kWh</strong></li>
+                <li><span>Security</span><strong>5.3 kWh</strong></li>
+              </ul>
+            </article>
           </div>
+        </section>
 
-          <form id="loginForm" novalidate>
-            <div class="field-group">
-              <label for="username">Email or Username</label>
-              <div class="input-wrap">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M4 20V8.5A2.5 2.5 0 0 1 6.5 6h11A2.5 2.5 0 0 1 20 8.5V20H4zm2.5-12.5a1.5 1.5 0 0 0-1.5 1.5V18h14V9a1.5 1.5 0 0 0-1.5-1.5h-11zm2.5 4.5h6v2H9v-2zm0-3h8v2H9v-2z"/>
-                </svg>
-                <input id="username" name="username" type="text" placeholder="you@example.com" autocomplete="username" />
+        <section class="section-panel" data-section="settings">
+          <div class="settings-grid">
+            <article class="panel-card">
+              <div class="panel-header">
+                <h3>Home settings</h3>
+                <span class="chip">Profile</span>
               </div>
-              <small class="error-message" id="usernameError" aria-live="polite"></small>
-            </div>
 
-            <div class="field-group">
-              <label for="password">Password</label>
-              <div class="input-wrap">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M7 10V8a5 5 0 0 1 10 0v2h1a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h1zm2 0h6V8a3 3 0 0 0-6 0v2z"/>
-                </svg>
-                <input id="password" name="password" type="password" placeholder="Enter your password" autocomplete="current-password" />
+              <div class="setting-list">
+                <div class="setting-row">
+                  <span>Auto-lock doors</span>
+                  <label class="switch"><input type="checkbox" checked /><span class="slider"></span></label>
+                </div>
+                <div class="setting-row">
+                  <span>Eco mode</span>
+                  <label class="switch"><input type="checkbox" checked /><span class="slider"></span></label>
+                </div>
+                <div class="setting-row">
+                  <span>Night lighting</span>
+                  <label class="switch"><input type="checkbox" /><span class="slider"></span></label>
+                </div>
               </div>
-              <small class="error-message" id="passwordError" aria-live="polite"></small>
-            </div>
+            </article>
 
-            <div class="options-row">
-              <label class="check-remember" for="rememberMe">
-                <input id="rememberMe" type="checkbox" />
-                <span>Remember me</span>
-              </label>
-              <a href="#" class="link">Forgot password?</a>
-            </div>
+            <article class="panel-card">
+              <div class="panel-header">
+                <h3>Notifications</h3>
+                <span class="chip">Preferences</span>
+              </div>
 
-            <button type="submit" class="login-btn">Login</button>
-            <p id="formStatus" class="form-status" aria-live="polite"></p>
-          </form>
+              <div class="setting-list">
+                <div class="setting-row">
+                  <span>Motion alerts</span>
+                  <label class="switch"><input type="checkbox" checked /><span class="slider"></span></label>
+                </div>
+                <div class="setting-row">
+                  <span>Energy reports</span>
+                  <label class="switch"><input type="checkbox" checked /><span class="slider"></span></label>
+                </div>
+                <div class="setting-row">
+                  <span>Maintenance reminders</span>
+                  <label class="switch"><input type="checkbox" /><span class="slider"></span></label>
+                </div>
+              </div>
+            </article>
+          </div>
         </section>
       </main>
     </div>

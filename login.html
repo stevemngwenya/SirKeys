@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SirKeys | Smart Home Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <div class="background-glow glow-one"></div>
+      <div class="background-glow glow-two"></div>
+
+      <main class="login-panel" aria-label="Smart home login form">
+        <section class="dashboard-side" aria-label="Smart home dashboard preview">
+          <div class="topbar">
+            <div class="brand">
+              <div class="brand-mark" aria-hidden="true">
+                <svg viewBox="0 0 64 64" role="img" aria-label="Home icon">
+                  <path d="M10 28L32 10l22 18v24a4 4 0 0 1-4 4H14a4 4 0 0 1-4-4V28z" />
+                  <path d="M22 52V34h20v18" />
+                </svg>
+              </div>
+              <div>
+                <span class="eyebrow">SirKeys</span>
+                <h1>Smart Home</h1>
+              </div>
+            </div>
+            <span class="status-pill">System Online</span>
+          </div>
+
+          <div class="hero-card">
+            <div class="mini-header">
+              <span>Home Overview</span>
+              <span class="dot" aria-hidden="true"></span>
+            </div>
+
+            <div class="metric-grid">
+              <div class="metric">
+                <span class="label">Temp</span>
+                <strong>22°C</strong>
+              </div>
+              <div class="metric accent">
+                <span class="label">Energy</span>
+                <strong>68%</strong>
+              </div>
+            </div>
+
+            <div class="device-stack" aria-label="Connected devices">
+              <div class="device-row">
+                <span class="device-name">Living Room</span>
+                <span class="toggle on">ON</span>
+              </div>
+              <div class="device-row">
+                <span class="device-name">Security</span>
+                <span class="toggle">ARMED</span>
+              </div>
+              <div class="device-row">
+                <span class="device-name">Thermostat</span>
+                <span class="toggle on">AUTO</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="login-side" aria-label="Login form section">
+          <div class="login-header">
+            <p class="eyebrow accent">Welcome back</p>
+            <h2>Sign in to your home</h2>
+          </div>
+
+          <form id="loginForm" novalidate>
+            <div class="field-group">
+              <label for="username">Email or Username</label>
+              <div class="input-wrap">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M4 20V8.5A2.5 2.5 0 0 1 6.5 6h11A2.5 2.5 0 0 1 20 8.5V20H4zm2.5-12.5a1.5 1.5 0 0 0-1.5 1.5V18h14V9a1.5 1.5 0 0 0-1.5-1.5h-11zm2.5 4.5h6v2H9v-2zm0-3h8v2H9v-2z"/>
+                </svg>
+                <input id="username" name="username" type="text" placeholder="you@example.com" autocomplete="username" />
+              </div>
+              <small class="error-message" id="usernameError" aria-live="polite"></small>
+            </div>
+
+            <div class="field-group">
+              <label for="password">Password</label>
+              <div class="input-wrap">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 10V8a5 5 0 0 1 10 0v2h1a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h1zm2 0h6V8a3 3 0 0 0-6 0v2z"/>
+                </svg>
+                <input id="password" name="password" type="password" placeholder="Enter your password" autocomplete="current-password" />
+              </div>
+              <small class="error-message" id="passwordError" aria-live="polite"></small>
+            </div>
+
+            <div class="options-row">
+              <label class="check-remember" for="rememberMe">
+                <input id="rememberMe" type="checkbox" />
+                <span>Remember me</span>
+              </label>
+              <a href="#" class="link">Forgot password?</a>
+            </div>
+
+            <button type="submit" class="login-btn">Login</button>
+            <p id="formStatus" class="form-status" aria-live="polite"></p>
+          </form>
+        </section>
+      </main>
+    </div>
+
+    <script src="/static/script.js"></script>
+  </body>
+</html>

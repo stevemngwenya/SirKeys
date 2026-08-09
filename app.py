@@ -4,12 +4,15 @@ app = Flask(__name__)
 
 
 @app.route("/", methods=["GET"])
-def index():
+def dashboard():
     return send_file("index.html")
 
 
-@app.route("/login", methods=["POST"])
+@app.route("/login", methods=["GET", "POST"])
 def login():
+    if request.method == "GET":
+        return send_file("login.html")
+
     username = (request.form.get("username") or "").strip()
     password = request.form.get("password") or ""
 
